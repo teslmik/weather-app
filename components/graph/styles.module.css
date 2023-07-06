@@ -1,0 +1,10 @@
+.graphContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 432px;
+  padding: 25px 18px 18px;
+  background-color: #1A1A1A;
+  border-radius: 1rem;
+  color: #A4A4A4;
+}

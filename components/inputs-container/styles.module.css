@@ -1,0 +1,30 @@
+.inputsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.multyselect {
+  min-width: 140px;
+
+}
+
+.multyselect > div[class*="-control"] {
+  border: 1px solid #515151;
+  border-radius: 12px;
+  background-color: #313131;
+}
+
+input {
+  color: #A4A4A4 !important;
+  font-size: 14px;
+}
+
+.multyselect > div[class*="-menu"] {
+  width: max-content;
+  white-space: nowrap;
+}
+
+span[class*="-indicatorSeparator"] {
+  width: 0;
+}

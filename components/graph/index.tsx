@@ -1,5 +1,7 @@
+import styles from './styles.module.css';
+
 export const Graph = () => {
   return (
-    <div>Graph</div>
+    <div className={styles.graphContainer}>Graph</div>
   )
 };
