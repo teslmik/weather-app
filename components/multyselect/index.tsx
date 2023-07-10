@@ -1,10 +1,10 @@
-import React from 'react';
-import AsyncSelect from 'react-select/async';
+"use client";
 
-type OptionType = {
-  value: string;
-  label: string;
-};
+import React from 'react';
+import { MultiValue } from 'react-select';
+import AsyncSelect from 'react-select/async';
+console.log('AsyncSelect: ', AsyncSelect);
+import { OptionType } from '@/types/options.type';
 
 type Props = {
   placeholder: string;
@@ -12,9 +12,15 @@ type Props = {
     readonly [key: string]: string;
   };
   loadOptions: (inputValue: string) => Promise<OptionType[]>;
+  onChange: (selectedOptions: OptionType[]) => void;
 }
 
-export const MultySelectInput: React.FC<Props> = ({ placeholder, styles, loadOptions }) => {
+export const MultySelectInput: React.FC<Props> = ({ placeholder, styles, loadOptions, onChange }) => {
+  const handleChange = (selected: MultiValue<OptionType>) => {
+    const selectedOptions = selected as OptionType[];
+    onChange(selectedOptions);
+  };
+
   return (
     <AsyncSelect
       className={styles.multyselect}
@@ -22,6 +28,7 @@ export const MultySelectInput: React.FC<Props> = ({ placeholder, styles, loadOpt
       loadOptions={loadOptions}
       isSearchable
       placeholder={placeholder}
+      onChange={handleChange}
     />
   );
 };

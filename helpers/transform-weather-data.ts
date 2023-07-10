@@ -4,7 +4,8 @@ import { WeatherType } from "@/types/weather.type";
 import { nanoid } from "nanoid";
 
 export const transformWeatherData = (
-  weatherArr: WeatherType[] | undefined
+  weatherArr: WeatherType[] | undefined,
+  citiesData: typeof TABLE_INITIAL_DATA
 ): TransformWeather[] => {
   if (!weatherArr) {
     throw new Error("Weather not found...");
@@ -30,7 +31,7 @@ export const transformWeatherData = (
     }
 
     const windDirections = data.current_weather.winddirection;
-    const city = TABLE_INITIAL_DATA[index].city;
+    const city = citiesData[index].value;
     const maxTemp = Math.max(...todayForecastTemperatures);
     const minTemp = Math.min(...todayForecastTemperatures);
     const id = nanoid();

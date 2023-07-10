@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { InputsContainer } from '../inputs-container';
 import { TableContainer } from '../table-container';
