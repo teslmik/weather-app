@@ -1,10 +1,44 @@
 .graphContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   width: 432px;
-  padding: 25px 18px 18px;
+  height: 443px;
+  padding: 12px 24px 16px;
   background-color: #1A1A1A;
   border-radius: 1rem;
   color: #A4A4A4;
+}
+
+.barContainer {
+  height: 376px;
+  width: 100%;
+}
+
+.barTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FDFCFF;
+}
+
+.valueName {
+  font-size: 12px;
+  font-weight: 500;
+  color: #E3E3E3;
+}
+
+.valueName::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #B3FC4F;
+  border-radius: 2px;
+  margin-right: 8px;
 }

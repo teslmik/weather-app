@@ -1,0 +1,34 @@
+.tableBody span {
+  padding: 10px 15px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.tableBody span {
+  font-weight: 400;
+}
+
+.tableBody span:first-child {
+  text-align-last: left;
+}
+
+.tableBody {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #191919;
+  color: #FDFCFF;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tableBody:nth-child(odd) {
+  background-color: #313131;
+}
+
+.tableBody:hover {
+  background-color: #434343;
+}
+
+.tableBody.active {
+  background-color: #434343;
+}

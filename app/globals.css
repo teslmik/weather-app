@@ -9,6 +9,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: #434343;
+  font-size: 14px;
 }
 
 a {

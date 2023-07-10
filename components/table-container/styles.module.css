@@ -1,0 +1,26 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #313131;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #030303;
+  color: #FDFCFF;
+}
+
+.tableHeader span {
+  padding: 10px 15px;
+  font-weight: 700;
+  text-align: right;
+  border-left: 1px solid #313131;
+}
+
+.tableHeader span:first-child {
+  text-align-last: left;
+  border-left: none;
+}
