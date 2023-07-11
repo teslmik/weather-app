@@ -1,4 +1,4 @@
-import { TransformWeather } from "./transform-weather.type";
+import { TransformWeather } from "./types";
 
 export type FetchDataType = {
   activeIndex: number;

@@ -3,11 +3,11 @@
 import React from "react";
 import useSWR from "swr";
 import { fetchInitialData } from "@/services/fetch-initial-data";
+import { FetchDataType } from "@/types/types";
 
 import styles from "./styles.module.css";
-import { FetchDataType } from "@/types/fetch-data.type";
 
-export const TableBody = () => {
+export const TableBody: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
   const { data, isLoading, mutate } = useSWR<FetchDataType | undefined>(
     "weather",

@@ -3,7 +3,7 @@
 import React from "react";
 import { MultiValue } from "react-select";
 import AsyncSelect from "react-select/async";
-import { OptionType } from "@/types/options.type";
+import { OptionType } from "@/types/types";
 
 type Props = {
   placeholder: string;

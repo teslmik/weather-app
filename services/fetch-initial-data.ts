@@ -1,6 +1,6 @@
 import { TABLE_INITIAL_DATA } from "@/constants/table-initial-data";
 import { transformWeatherData } from "@/helpers/transform-weather-data";
-import { WeatherType } from "@/types/weather.type";
+import { WeatherType } from "@/types/types";
 
 export const fetchInitialData = async (data?: typeof TABLE_INITIAL_DATA) => {
   const fetchData = data ? data : TABLE_INITIAL_DATA;

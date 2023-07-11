@@ -1,7 +1,6 @@
-import { TABLE_INITIAL_DATA } from "@/constants/table-initial-data";
-import { TransformWeather } from "@/types/transform-weather.type";
-import { WeatherType } from "@/types/weather.type";
 import { nanoid } from "nanoid";
+import { TABLE_INITIAL_DATA } from "@/constants/table-initial-data";
+import { TransformWeather, WeatherType } from "@/types/types";
 
 export const transformWeatherData = (
   weatherArr: WeatherType[] | undefined,

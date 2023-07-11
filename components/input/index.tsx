@@ -1,5 +1,5 @@
 import React from "react";
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 import styles from "./styles.module.css";
 
@@ -7,8 +7,6 @@ type Properties = {
   label: string;
   name: keyof FieldValues;
   register: UseFormRegister<FieldValues>;
-  errors: FieldErrors<FieldValues>;
-  formValues: FieldValues;
   min?: number;
   max?: number;
 };
@@ -17,8 +15,6 @@ export const TemperatureInput: React.FC<Properties> = ({
   label,
   name,
   register,
-  errors,
-  formValues,
   min = -80,
   max = 80
 }) => {

@@ -1,19 +1,17 @@
 "use client";
 
+import React from "react";
+import useSWR from "swr";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { MultySelectInput, TemperatureInput } from "@/components/components";
 import { validateMinMax } from "@/helpers/validate-minmax";
 import { fetchInitialData } from "@/services/fetch-initial-data";
 import { fetchSearchByCountry } from "@/services/fetch-search-country";
-import { FetchDataType } from "@/types/fetch-data.type";
-import { OptionType } from "@/types/options.type";
-import React from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import useSWR from "swr";
-import { TemperatureInput } from "../input";
-import { MultySelectInput } from "../multyselect";
+import { FetchDataType, OptionType } from "@/types/types";
 
 import styles from "./styles.module.css";
 
-export const InputsContainer = () => {
+export const InputsContainer: React.FC = () => {
   const { data, mutate } = useSWR<FetchDataType | undefined>("weather");
   const {
     register,
@@ -52,19 +50,14 @@ export const InputsContainer = () => {
     );
   };
 
-  const formValues = watch();
-
-
-  validateMinMax(formValues, setValue);
+  validateMinMax(watch(), setValue);
 
   React.useEffect(() => {
     if (data?.cities) {
-      const minTemp = Math.min(
-        ...data.cities.map((city) => Math.floor(city.minTemp))
-      );
-      const maxTemp = Math.max(
-        ...data.cities.map((city) => Math.ceil(city.maxTemp))
-      );
+      const minArr = data.cities.map((city) => Math.floor(city.minTemp));
+      const maxArr = data.cities.map((city) => Math.ceil(city.maxTemp));
+      const minTemp = Math.min(...minArr);
+      const maxTemp = Math.max(...maxArr);
 
       setValue('min', minTemp);
       setValue('max', maxTemp);
@@ -89,51 +82,12 @@ export const InputsContainer = () => {
         label="Min"
         name="min"
         register={register}
-        errors={errors}
-        formValues={formValues}
       />
       <TemperatureInput
         label="Max"
         name="max"
         register={register}
-        errors={errors}
-        formValues={formValues}
       />
-      {/* <div className={styles.inputWrapper}>
-        <input
-          className={styles.input}
-          type="number"
-          {...register("min", {
-            valueAsNumber: true,
-            min: -80,
-            max: 80,
-          })}
-          placeholder="Min"
-        />
-        <div className={styles.inputError}>
-          {errors?.min?.type === "min" && <p>Min temperature -80!</p>}
-          {errors?.min?.type === "max" && <p>Max temperature +80</p>}
-          {!!formValues.min && !isInputValid && <p>Error! Min {">"} Max</p>}
-        </div>
-      </div>
-
-      <div className={styles.inputWrapper}>
-        <input
-          className={styles.input}
-          type="number"
-          {...register("max", {
-            valueAsNumber: true,
-            min: -80,
-            max: 80,
-          })}
-          placeholder="Max"
-        />
-        <div className={styles.inputError}>
-          {errors?.max?.type === "min" && <p>Min temperature -80!</p>}
-          {errors?.max?.type === "max" && <p>Max temperature +80</p>}
-          {!!formValues.max && !isInputValid && <p>Error! Min {">"} Max</p>}
-        </div>
-      </div> */}
     </form>
   );
 };

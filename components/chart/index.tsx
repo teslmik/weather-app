@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 import useSWR from "swr";
 import { Bar } from "react-chartjs-2";
-import { FetchDataType } from "@/types/fetch-data.type";
+import { FetchDataType } from "@/types/types";
 
 import styles from "./styles.module.css";
 

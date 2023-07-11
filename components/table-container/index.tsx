@@ -1,11 +1,10 @@
 import React from "react";
-
 import { TABLE_HEADER } from "@/constants/table-header";
-import { TableBody } from "../table-body";
+import { TableBody } from "@/components/components";
 
 import styles from "./styles.module.css";
 
-export const TableContainer = () => {
+export const TableContainer: React.FC = () => {
   return (
     <div className={styles.tableContainer}>
       <div className={styles.tableHeader}>

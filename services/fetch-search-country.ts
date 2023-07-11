@@ -1,4 +1,4 @@
-import { OptionType } from "@/types/options.type";
+import { OptionType } from "@/types/types";
 
 const searchUrl = (value: string) =>
   `https://geocoding-api.open-meteo.com/v1/search?name=${value}&count=10&language=en&format=json`;
