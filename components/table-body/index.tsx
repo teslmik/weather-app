@@ -2,6 +2,7 @@
 
 import React from "react";
 import useSWR from "swr";
+import { Loader } from "../loader";
 import { fetchInitialData } from "@/services/fetch-initial-data";
 import { FetchDataType } from "@/types/types";
 
@@ -22,7 +23,7 @@ export const TableBody: React.FC = () => {
   return (
     <ul className={styles.tableBodyList}>
       {isLoading ? (
-        <h3>Loading...</h3>
+        <Loader />
       ) : (
         data?.filteredCities.map((city, index) => (
           <li

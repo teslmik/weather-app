@@ -5,4 +5,4 @@ export { MultySelectInput } from './multyselect';
 export { Table } from './table';
 export { TableBody } from './table-body';
 export { TableContainer } from './table-container';
-
+export { Loader } from './loader';

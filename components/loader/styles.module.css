@@ -1,0 +1,9 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #FDFCFF;
+  font-size: 16px;
+  padding: 16px;
+}
