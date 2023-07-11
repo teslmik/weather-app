@@ -21,24 +21,27 @@ export const TableBody: React.FC = () => {
   };
 
   return (
-    <ul className={styles.tableBodyList}>
+    <>
       {isLoading ? (
         <Loader />
       ) : (
-        data?.filteredCities.map((city, index) => (
-          <li
-            key={city.id}
-            className={`${styles.tableBody} ${activeIndex === index ? styles.active : ""
+        <ul className={styles.tableBodyList}>
+          {data?.filteredCities.map((city, index) => (
+            <li
+              key={city.id}
+              className={`${styles.tableBody} ${
+                activeIndex === index ? styles.active : ""
               }`}
-            onClick={() => handleClick(index)}
-          >
-            <span>{city.city}</span>
-            <span>{city.maxTemp}</span>
-            <span>{city.minTemp}</span>
-            <span>{city.windDirections}</span>
-          </li>
-        ))
+              onClick={() => handleClick(index)}
+            >
+              <span>{city.city}</span>
+              <span>{city.maxTemp}</span>
+              <span>{city.minTemp}</span>
+              <span>{city.windDirections}</span>
+            </li>
+          ))}
+        </ul>
       )}
-    </ul>
+    </>
   );
 };
