@@ -1,5 +1,6 @@
 import React from 'react';
-import { InputsContainer, TableContainer } from '@/components/components';
+import { InputsContainer } from '../inputs-container';
+import { TableContainer } from '../table-container';
 
 import styles from './styles.module.css';
 

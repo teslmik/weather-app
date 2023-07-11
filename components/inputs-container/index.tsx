@@ -3,14 +3,14 @@
 import React from "react";
 import useSWR from "swr";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { MultySelectInput, TemperatureInput } from "@/components/components";
+import { MultySelectInput } from "@/components/multyselect";
+import { TemperatureInput } from "@/components/input";
 import { validateMinMax } from "@/helpers/validate-minmax";
 import { fetchInitialData } from "@/services/fetch-initial-data";
 import { fetchSearchByCountry } from "@/services/fetch-search-country";
 import { FetchDataType, OptionType } from "@/types/types";
 
 import styles from "./styles.module.css";
-
 export const InputsContainer: React.FC = () => {
   const { data, mutate } = useSWR<FetchDataType | undefined>("weather");
   const {
