@@ -12,10 +12,9 @@ import {
 } from "chart.js";
 import useSWR from "swr";
 import { Bar } from "react-chartjs-2";
-import { TransformWeather } from "@/types/transform-weather.type";
+import { FetchDataType } from "@/types/fetch-data.type";
 
 import styles from "./styles.module.css";
-import { fetchInitialData } from "@/services/fetch-initial-data";
 
 ChartJS.register(
   CategoryScale,
@@ -26,10 +25,8 @@ ChartJS.register(
   Legend
 );
 
-export const Graph: React.FC = () => {
-  const { data: weatherData, mutate, isLoading } = useSWR<
-    { activeIndex: number; cities: TransformWeather[] } | undefined
-  >("weather");
+export const Chart: React.FC = () => {
+  const { data: weatherData } = useSWR<FetchDataType | undefined>("weather");
 
   const chartRef = React.useRef<ChartJS<"bar">>(null);
 
@@ -77,13 +74,14 @@ export const Graph: React.FC = () => {
   gradient.addColorStop(1, "#173102");
 
   const data = {
-    labels: weatherData && weatherData?.cities[weatherData.activeIndex]?.weekDays,
+    labels:
+      weatherData && weatherData?.filteredCities[weatherData.activeIndex]?.weekDays,
     datasets: [
       {
         label: "Temperature",
         data:
           weatherData &&
-          weatherData?.cities[weatherData.activeIndex]?.lastWeekTemperatures,
+          weatherData?.filteredCities[weatherData.activeIndex]?.lastWeekTemperatures,
         backgroundColor: gradient,
         barThickness: 28,
         barPercentage: 0.8,
@@ -92,14 +90,12 @@ export const Graph: React.FC = () => {
     ],
   };
 
-  if (!weatherData && isLoading) mutate(() => fetchInitialData());
-
   return (
     <div className={styles.graphContainer}>
       <div className={styles.barTitle}>
         <p>Analystics</p>
         <p className={styles.valueName}>
-          {weatherData?.cities[weatherData.activeIndex]?.city}
+          {weatherData?.filteredCities[weatherData.activeIndex]?.city}
         </p>
       </div>
       <div className={styles.barContainer}>

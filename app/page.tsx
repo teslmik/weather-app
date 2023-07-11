@@ -1,11 +1,11 @@
-import { Graph } from '@/components/graph';
+import { Chart } from '@/components/chart';
 import { Table } from '@/components/table';
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Graph />
+      <Chart />
       <Table />
     </main>
   )

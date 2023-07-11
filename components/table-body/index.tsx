@@ -3,7 +3,6 @@
 import React from "react";
 import useSWR from "swr";
 import { fetchInitialData } from "@/services/fetch-initial-data";
-import { TransformWeather } from "@/types/transform-weather.type";
 
 import styles from "./styles.module.css";
 import { FetchDataType } from "@/types/fetch-data.type";
@@ -14,10 +13,10 @@ export const TableBody = () => {
     "weather",
     () => fetchInitialData()
   );
-  
+
   const handleClick = (index: number) => {
     setActiveIndex(index);
-    mutate({ cities: data?.cities, activeIndex: index });
+    mutate((prev) => ({ ...prev, activeIndex: index } as FetchDataType));
   };
 
   return (
@@ -25,12 +24,11 @@ export const TableBody = () => {
       {isLoading ? (
         <h3>Loading...</h3>
       ) : (
-        data?.cities?.map((city, index) => (
+        data?.filteredCities.map((city, index) => (
           <li
             key={city.id}
-            className={`${styles.tableBody} ${
-              activeIndex === index ? styles.active : ""
-            }`}
+            className={`${styles.tableBody} ${activeIndex === index ? styles.active : ""
+              }`}
             onClick={() => handleClick(index)}
           >
             <span>{city.city}</span>

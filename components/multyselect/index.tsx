@@ -1,10 +1,9 @@
 "use client";
 
-import React from 'react';
-import { MultiValue } from 'react-select';
-import AsyncSelect from 'react-select/async';
-console.log('AsyncSelect: ', AsyncSelect);
-import { OptionType } from '@/types/options.type';
+import React from "react";
+import { MultiValue } from "react-select";
+import AsyncSelect from "react-select/async";
+import { OptionType } from "@/types/options.type";
 
 type Props = {
   placeholder: string;
@@ -13,10 +12,15 @@ type Props = {
   };
   loadOptions: (inputValue: string) => Promise<OptionType[]>;
   onChange: (selectedOptions: OptionType[]) => void;
-}
+};
 
-export const MultySelectInput: React.FC<Props> = ({ placeholder, styles, loadOptions, onChange }) => {
-  const handleChange = (selected: MultiValue<OptionType>) => {
+export const MultySelectInput: React.FC<Props> = ({
+  placeholder,
+  styles,
+  loadOptions,
+  onChange,
+}) => {
+  const handleChange = async (selected: MultiValue<OptionType> = []) => {
     const selectedOptions = selected as OptionType[];
     onChange(selectedOptions);
   };

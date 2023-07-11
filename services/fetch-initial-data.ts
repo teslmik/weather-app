@@ -17,7 +17,7 @@ export const fetchInitialData = async (data?: typeof TABLE_INITIAL_DATA) => {
     const weatherData = await Promise.all(weatherDataPromises);
     const cities = transformWeatherData(weatherData, fetchData);
 
-    return { activeIndex: 0, cities };
+    return { activeIndex: 0, cities, filteredCities: cities};
   } catch (error) {
     console.error("Error getting weather data:", error);
   }

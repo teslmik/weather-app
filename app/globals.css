@@ -16,3 +16,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+label {
+  margin-left: 10px;
+  margin-bottom: 3px;
+  color: #A4A4A4;
+}

@@ -1,0 +1,21 @@
+.input {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid #515151;
+  border-radius: 12px;
+  background-color: #313131;
+  color: #A4A4A4;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.input:focus {
+  transition: all 0.1s;
+  outline: 0;
+  box-shadow: 0 0 0 1px #2684ff;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
